@@ -37,6 +37,7 @@ const Navbar = () => {
 						<Item
 							title={title}
 							active={active}
+							key={title}
 						/>
 					))}
 				</div>

@@ -9,11 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.27.2",
+    "framer-motion": "^7.3.2",
+    "mongoose": "^6.6.0",
     "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
     "react-loading": "^2.0.3",
+    "react-toastify": "^9.0.8",
     "sass": "^1.54.8",
     "styled-components": "^5.3.5"
   },

@@ -8,6 +8,8 @@
 		//"checkJs": true,
 		"paths": {
 			"@/styles/*": ["styles/*"],
+			"@/utils/*": ["utils/*"],
+			"@/func/*": ["utils/functions/*"],
 
 			"@/pages/*": ["pages/*"],
 			"@/components/*": ["components/*"],
@@ -16,8 +18,6 @@
 			"@/UI/*": ["components/UI/*"],
 			"@/Next/*": ["components/NextUI/*"],
 			"@/data/*": ["utils/data/*"],
-			"@/utils/*": ["utils/*"],
-			"@/func/*": ["utils/functions/*"],
 			"@/lib/*": ["utils/lib/*"],
 			"@/models/*": ["utils/models/*"],
 			"@/public/*": ["public/*"],
