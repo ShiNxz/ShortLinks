@@ -1,3 +1,4 @@
+import db from '@/utils/db'
 import Link from '@/utils/models/Link'
 
 const Home = () => {
@@ -5,6 +6,8 @@ const Home = () => {
 }
 
 export async function getServerSideProps(context) {
+	await db()
+
 	const { code } = context.params
 
 	const url = await Link.where('shortCode').equals(code)
