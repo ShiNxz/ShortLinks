@@ -37,7 +37,7 @@ const Paragraph = styled.p`
 	}
 `
 
-const Header = () => {
+const Header = ({ r }) => {
 	return (
 		<div className='bg-neutral-200'>
 			<div className='flex flex-row justify-between items-center container mx-auto px-32 py-24'>
@@ -65,10 +65,13 @@ const Header = () => {
 					/>
 				</div>
 			</div>
-			<div className='rounded-full px-4 py-2 bg-[#312d2e] duration-300 hover:bg-[#464444] text-[#dfc39b] translate-y-5 text-lg w-fit mx-auto flex flex-row items-center font-medium cursor-pointer'>
+			<button
+				onClick={() => r.current?.scrollIntoView({ behavior: 'smooth', })}
+				className='rounded-full px-4 py-2 bg-[#312d2e] duration-300 hover:bg-[#464444] text-[#dfc39b] translate-y-5 text-lg w-fit mx-auto flex flex-row items-center font-medium cursor-pointer'
+			>
 				המשך לקיצור הכתובות
 				<TiArrowDownThick className='mr-1' />
-			</div>
+			</button>
 		</div>
 	)
 }

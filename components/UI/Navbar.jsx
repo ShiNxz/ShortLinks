@@ -62,12 +62,13 @@ const Item = ({ title, active, page }) => {
 
 const Navbar = () => {
 	const router = useRouter()
-	console.log(router.asPath)
 
 	return (
-		<div className='h-32 relative'>
+		<div className='h-32 relative mb-20'>
 			<div className='w-full bg-[#312d2e] py-8 h-32 flex justify-between items-center flex-row container mx-auto z-10 relative'>
-				<img src={logo.src} />
+				<Link href='/'>
+					<img src={logo.src} className='cursor-pointer' />
+				</Link>
 				<div className='flex flex-row'>
 					{pages.map(({ title, page }) => (
 						<Item

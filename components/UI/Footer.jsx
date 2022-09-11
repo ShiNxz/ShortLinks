@@ -1,5 +1,6 @@
 import logo from '@/public/assets/footerlogo.png'
 import styled from 'styled-components'
+import NextLink from 'next/link'
 
 import aelogo from '@/public/assets/aelogo.png'
 import oelogo from '@/public/assets/oelogo.png'
@@ -35,7 +36,11 @@ const Link = styled.a`
 `
 
 const LinksSection = ({ children }) => {
-	return <div className='border-l-2 border-r-2 border-neutral-300 px-10 border-dashed flex flex-col my-4 -mx-[1px]'>{children}</div>
+	return (
+		<div className='border-l-2 border-r-2 border-neutral-300 px-10 border-dashed flex flex-col my-4 -mx-[1px]'>
+			{children}
+		</div>
+	)
 }
 
 const Footer = () => {
@@ -43,11 +48,14 @@ const Footer = () => {
 		<footer className='bg-neutral-100 p-4 shadow-lg'>
 			<div className='container mx-auto flex flex-row justify-between '>
 				<div className='flex flex-row'>
-					<img
-						src={logo.src}
-						alt='footer logo'
-						className='ml-12 object-contain'
-					/>
+					<NextLink href='/'>
+						<img
+							src={logo.src}
+							alt='footer logo'
+							className='ml-12 object-contain cursor-pointer'
+						/>
+					</NextLink>
+
 					<LinksSection>
 						<Title>
 							מידע <span>נוסף</span>
@@ -68,8 +76,18 @@ const Footer = () => {
 					</LinksSection>
 				</div>
 				<div className='flex flex-row'>
-					<img src={oelogo.src} alt='logo1' className='ml-4 object-contain' width={60} />
-					<img src={aelogo.src} alt='logo2' className='object-contain' width={80} />
+					<img
+						src={oelogo.src}
+						alt='logo1'
+						className='ml-4 object-contain'
+						width={60}
+					/>
+					<img
+						src={aelogo.src}
+						alt='logo2'
+						className='object-contain'
+						width={80}
+					/>
 				</div>
 			</div>
 		</footer>

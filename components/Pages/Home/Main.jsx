@@ -9,7 +9,7 @@ import Axios from '@/func/Axios'
 
 const Button = styled.button``
 
-const Main = () => {
+const Main = ({ r }) => {
 	const [state, dispatch] = useReducer(Reducer, initialState)
 
 	const handleSubmit = async () => {
@@ -41,8 +41,11 @@ const Main = () => {
 	}
 
 	return (
-		<div className=''>
-			<div className='flex flex-col items-center container mx-auto px-32 py-24'>
+		<>
+			<div
+				className='flex flex-col items-center container mx-auto px-32 py-24'
+				ref={r}
+			>
 				<Title>
 					קצרו את <span style={{ color: 'unset' }}>הכתובת שלכם!</span>
 				</Title>
@@ -76,7 +79,7 @@ const Main = () => {
 					dispatch={dispatch}
 				/>
 			</div>
-		</div>
+		</>
 	)
 }
 
