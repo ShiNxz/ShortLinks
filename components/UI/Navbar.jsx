@@ -68,11 +68,11 @@ const Navbar = () => {
 
 	return (
 		<div className='h-32 relative mb-20'>
-			<div className='w-full bg-[#312d2e] p-8 h-32 flex justify-between items-center flex-row mx-auto z-10 relative'>
+			<div className='w-full bg-[#312d2e] p-8 h-32 flex justify-between items-center flex-row mx-auto z-10 relative lg:px-52'>
 				<Link href='/'>
 					<img
 						src={logo.src}
-						className='cursor-pointer h-12 lg:w-auto'
+						className='cursor-pointer h-12 md:h-24 lg:h-auto'
 					/>
 				</Link>
 				<div className='lg:flex flex-row hidden'>

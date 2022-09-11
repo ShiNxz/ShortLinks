@@ -35,6 +35,13 @@ const qs = [
 				ומסורבלים.
 				<br />
 				קישור רגיל יכול להגיע אפילו למאות תווים! בעיקר בקישורים שיש בהם טקסט בעברית.
+				<br />
+				כשאנחנו רוצים לשתף את הקישור שלנו ברשתות החברתיות חשוב שההודעה תהיה קצרה, קולעת ומדוייק.
+				<br />
+				לינק קצר עונה על כל הצרכים!
+				<br />
+				<br />
+				תאמינו לנו, קיצור כתובת קטנה בשבילכם אבל גדולה בשביל הגולש! 😎
 			</>
 		),
 	},
@@ -54,14 +61,6 @@ const FAQ = () => {
 						key={question}
 					/>
 				))}
-			</div>
-			<div>
-				כשאנחנו רוצים לשתף את הקישור שלנו ברשתות החברתיות חשוב שההודעה תהיה קצרה, קולעת ומדוייק.
-				<br />
-				לינק קצר עונה על כל הצרכים!
-				<br />
-				<br />
-				תאמינו לנו, קיצור כתובת קטנה בשבילכם אבל גדולה בשביל הגולש! 😎
 			</div>
 		</div>
 	)
@@ -112,7 +111,7 @@ const AQ = ({ question, answer }) => {
 			</div>
 			<div
 				className={`duration-300 h-auto ${
-					open ? 'max-h-24' : 'max-h-0'
+					open ? 'max-h-52' : 'max-h-0'
 				} block overflow-hidden text-neutral-700`}
 			>
 				<div className='p-4'>{answer}</div>
