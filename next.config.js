@@ -5,6 +5,10 @@ const nextConfig = {
 	env: {
 		BASE_URI: process.env.BASE_URI,
 	},
+	compiler: {
+		// Enables the styled-components SWC transform
+		styledComponents: true,
+	},
 }
 
 module.exports = nextConfig

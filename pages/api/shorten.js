@@ -23,7 +23,7 @@ const handler = async (req, res) => {
 			})
 
 			// make it delayed by 1000 ms
-			await new Promise((resolve) => setTimeout(() => resolve(), 1000))
+			// await new Promise((resolve) => setTimeout(() => resolve(), 1000))
 
 			res.status(200).json({ success: true, url, shortCode, shortUrl: `${process.env.BASE_URI}/${shortCode}` })
 		}

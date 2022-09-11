@@ -1,24 +1,13 @@
-import Navbar from '@/components/UI/Navbar'
-import Footer from '@/components/UI/Footer'
-import Main from '@/components/UI/Main'
-import Head from '@/components/UI/Head'
-
 import HeaderBlock from '@/components/Pages/Home/Header'
 import MainBlock from '@/components/Pages/Home/Main'
+import Layout from '@/components/UI/Layout'
 
 const Index = () => {
 	return (
-		<>
-			<Head title='דף ראשי' />
-
-			<Navbar />
-			<Main>
-				<HeaderBlock />
-				<MainBlock />
-				
-			</Main>
-			<Footer />
-		</>
+		<Layout title='דף ראשי'>
+			<HeaderBlock />
+			<MainBlock />
+		</Layout>
 	)
 }
 

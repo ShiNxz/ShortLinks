@@ -1,43 +1,80 @@
 import bg from '@/public/assets/ui/navbar.png'
 import logo from '@/public/assets/logo.png'
+import styled from 'styled-components'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 const pages = [
 	{
 		title: 'דף ראשי',
-		active: true,
+		page: '/',
 	},
 	{
 		title: 'קיצור כתובות',
+		page: '/shorten',
 	},
 	{
-		title: 'מידע נוסף',
+		title: 'תקנון',
+		page: '/terms',
 	},
 ]
 
-const Item = ({ title, active }) => {
+const ItemStyled = styled.div`
+	color: ${({ active }) => (active ? '#c2aa89' : '#fff')};
+	//font-weight: ${({ active }) => (active ? '500' : '300')};
+	text-decoration: none;
+	transition: all 0.3s ease;
+	cursor: pointer;
+
+	&:hover {
+		color: #c2aa89;
+	}
+
+	&::after {
+		display: block;
+		content: '';
+		border-bottom: solid 2px #c2aa89;
+		transform: scaleX(0);
+		transition: transform 250ms ease-in-out;
+	}
+
+	&:hover::after {
+		transform: scaleX(1);
+	}
+`
+
+const Item = ({ title, active, page }) => {
 	// Link
 	return (
-		<div
-			className={`text-3xl mx-6 ${
-				active ? 'text-[#c2aa89] font-medium' : 'text-white font-light'
-			} hover:text-[#c2aa89] duration-200 `}
+		<Link
+			href={page}
+			key={title}
 		>
-			{title}
-		</div>
+			<ItemStyled
+				className={`text-3xl mx-6`}
+				active={active}
+			>
+				{title}
+			</ItemStyled>
+		</Link>
 	)
 }
 
 const Navbar = () => {
+	const router = useRouter()
+	console.log(router.asPath)
+
 	return (
 		<div className='h-32 relative'>
 			<div className='w-full bg-[#312d2e] py-8 h-32 flex justify-between items-center flex-row container mx-auto z-10 relative'>
 				<img src={logo.src} />
 				<div className='flex flex-row'>
-					{pages.map(({ title, active }) => (
+					{pages.map(({ title, page }) => (
 						<Item
 							title={title}
-							active={active}
-							key={title}
+							active={router.asPath === page}
+							key={page}
+							page={page}
 						/>
 					))}
 				</div>
