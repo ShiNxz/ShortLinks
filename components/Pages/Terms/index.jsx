@@ -14,7 +14,7 @@ const TermsParagraph = styled.p`
 
 const TermsofService = () => {
 	return (
-		<div className='bg-neutral-200 px-40 pt-12 pb-40'>
+		<div className='bg-neutral-200 px-8 md:px-16 lg:px-40 pt-12 pb-40'>
 			<Title>תקנון</Title>
 			<TermsParagraph>
 				<span>האתר SHRT.co.il מופעל ע"י אופק עפרון ואמיר אליז ומשתמש אתר לשירות קיצור כתובות ברשת</span>

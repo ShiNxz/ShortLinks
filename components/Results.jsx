@@ -16,7 +16,7 @@ const Results = ({ state }) => {
 	}
 
 	return (
-		<div className='mt-10 h-32 mb-8'>
+		<div className={`mt-10 h-32 mb-8 w-full ${!state.isLoading && !state.results && 'animate-pulse bg-neutral-700/5'}`}>
 			<AnimatePresence>
 				{state.isLoading ? (
 					<motion.div
@@ -49,7 +49,7 @@ const Results = ({ state }) => {
 							exit={{ y: 20, opacity: 0 }}
 							transition={{ duration: 0.3 }}
 						>
-							<div className='flex flex-col w-full'>
+							<div className='flex flex-col w-fit mx-auto'>
 								<div className='flex flex-row items-center justify-center'>
 									<button
 										className='bg-[#312d2e] duration-300 hover:bg-[#464444] text-[#dfc39b] font-medium py-2 px-4 rounded-none'
@@ -59,7 +59,7 @@ const Results = ({ state }) => {
 									</button>
 									<input
 										type='text'
-										className='bg-neutral-200 outline-none rounded-none py-2 px-4 w-72 shadiw-lg'
+										className='bg-neutral-200 outline-none rounded-none py-2 px-4 w-full lg:w-72 shadiw-lg'
 										value={state.results.shortUrl}
 										style={{ direction: 'ltr' }}
 										onClick={handleFocus}

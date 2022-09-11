@@ -1,3 +1,4 @@
+import FAQ from '@/components/FAQ'
 import HeaderBlock from '@/components/Pages/Home/Header'
 import MainBlock from '@/components/Pages/Home/Main'
 import Layout from '@/components/UI/Layout'
@@ -18,6 +19,7 @@ const Index = () => {
 		<Layout title='דף ראשי'>
 			<HeaderBlock r={ref} />
 			<MainBlock r={ref} />
+			<FAQ />
 		</Layout>
 	)
 }

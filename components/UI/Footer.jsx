@@ -46,13 +46,13 @@ const LinksSection = ({ children }) => {
 const Footer = () => {
 	return (
 		<footer className='bg-neutral-100 p-4 shadow-lg'>
-			<div className='container mx-auto flex flex-row justify-between '>
-				<div className='flex flex-row'>
+			<div className='container mx-auto flex flex-col lg:flex-row justify-between '>
+				<div className='flex flex-col lg:flex-row'>
 					<NextLink href='/'>
 						<img
 							src={logo.src}
 							alt='footer logo'
-							className='ml-12 object-contain cursor-pointer'
+							className='ml-12 hidden lg:block object-contain cursor-pointer'
 						/>
 					</NextLink>
 
