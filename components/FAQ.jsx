@@ -49,7 +49,7 @@ const qs = [
 
 const FAQ = () => {
 	return (
-		<div className='flex flex-col justify-center items-center py-20 border-t container mx-auto px-4 xl:px-24'>
+		<div className='flex flex-col justify-center items-center py-20 container mx-auto px-4 xl:px-24'>
 			<Title>
 				שאלות <span>נפוצות</span>
 			</Title>

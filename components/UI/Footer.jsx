@@ -33,6 +33,11 @@ const Title = styled.h2`
 const Link = styled.a`
 	color: #7c7c7c;
 	margin-bottom: 10px;
+	transition-duration: 200ms;
+
+	&:hover {
+		color: #4d4d4d;
+	}
 `
 
 const LinksSection = ({ children }) => {
@@ -60,34 +65,68 @@ const Footer = () => {
 						<Title>
 							מידע <span>נוסף</span>
 						</Title>
-						<Link>קישור נוסף</Link>
-						<Link>קישור נוסף</Link>
-						<Link>קישור נוסף</Link>
-						<Link>קישור נוסף</Link>
+						<Link>
+							<NextLink href='/terms'>תקנון שימוש</NextLink>
+						</Link>
+						<Link>
+							<NextLink href='/faq'>שאלות נפוצות</NextLink>
+						</Link>
+						<Link>
+							<NextLink href='/faq'>מדריך שימוש</NextLink>
+						</Link>
+						<Link>
+							<NextLink href='/faq'>אתרים בבעלותינו</NextLink>
+						</Link>
 					</LinksSection>
 					<LinksSection>
 						<Title>
-							מידע <span>נוסף</span>
+							קישורים <span>נוספים</span>
 						</Title>
-						<Link>קישור נוסף</Link>
-						<Link>קישור נוסף</Link>
-						<Link>קישור נוסף</Link>
-						<Link>קישור נוסף</Link>
+						<Link>
+							<a
+								href='https://next-il.co.il'
+								target='_blank'
+							>
+								Next-il.co.il
+							</a>
+						</Link>
+						<Link>
+							<a
+								href='https://play-il.co.il'
+								target='_blank'
+							>
+								Play-il.co.il
+							</a>
+						</Link>
+						{/* <Link>קישור נוסף</Link>
+						<Link>קישור נוסף</Link> */}
 					</LinksSection>
 				</div>
 				<div className='flex flex-row'>
-					<img
-						src={oelogo.src}
-						alt='logo1'
-						className='ml-4 object-contain'
-						width={60}
-					/>
-					<img
-						src={aelogo.src}
-						alt='logo2'
-						className='object-contain'
-						width={80}
-					/>
+					<a
+						href='https://ofekefron.com/'
+						target='_blank'
+						className='flex'
+					>
+						<img
+							src={oelogo.src}
+							alt='Ofek Efron'
+							className='ml-4 object-contain'
+							width={60}
+						/>
+					</a>
+					<a
+						href='https://amireliz.me/'
+						target='_blank'
+						className='flex '
+					>
+						<img
+							src={aelogo.src}
+							alt='Amir Eliz'
+							className='object-contain'
+							width={80}
+						/>
+					</a>
 				</div>
 			</div>
 		</footer>
