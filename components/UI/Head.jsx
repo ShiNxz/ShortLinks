@@ -2,12 +2,12 @@ import NextHead from 'next/head'
 import logo from '@/public/assets/logo.png'
 
 const Head = ({ title }) => {
-	const pageTitle = `קיצור כתובת | ${title}`
+	const pageTitle = `SHRT | ${title}`
 
 	return (
 		<NextHead>
 			<title>{pageTitle}</title>
-			<meta charset='UTF-8' />
+			<meta charSet='UTF-8' />
 			<meta
 				name='description'
 				content='אתר SHRT הינו אתר לקיצור כתובות מהיר מאובטח וידידותי בחינם באינטרנט!

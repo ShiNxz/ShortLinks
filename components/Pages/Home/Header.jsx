@@ -1,6 +1,7 @@
 import logo from '@/public/assets/ui/url_logo.png'
 import styled from 'styled-components'
 import { TiArrowDownThick } from 'react-icons/ti'
+import Link from 'next/link'
 
 export const Title = styled.h3`
 	font-size: 1.7rem;
@@ -65,7 +66,13 @@ const Header = ({ r }) => {
 						בלחיצת כפתור תוכלו לקצר כתובת ארוכה לקצרה ולפרסם בלי בעיה! שתפו בווצאפ או בפייסבוק את האתר
 						שבחרתם, קישור קצר תמיד נראה יותר נוח להבנה. כל מה שנותר לכם זה לנסות!
 						<br />
-						<span className='text-md'>* מומלץ לפני קיצור כתובת באתר לצפות בתנאי השימוש של האתר.</span>
+						<span className='text-sm'>
+							* מומלץ לפני קיצור כתובת באתר לצפות{' '}
+							<Link href='/terms'>
+								<a className='hover:text-blue-500 duration-200 decoration-blue-500 underline underline-offset-4'>בתנאי השימוש</a>
+							</Link>{' '}
+							של האתר.
+						</span>
 					</p>
 				</div>
 				<div className='p-12 hidden lg:block'>

@@ -95,7 +95,7 @@ const Footer = () => {
 								href='https://play-il.co.il'
 								target='_blank'
 							>
-								Play-il.co.il
+								Play-IL.co.il
 							</a>
 						</Link>
 						{/* <Link>קישור נוסף</Link>
