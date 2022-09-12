@@ -42,6 +42,10 @@ const Head = ({ title }) => {
 				content='אתר SHRT הינו אתר לקיצור כתובות מהיר מאובטח וידידותי בחינם באינטרנט!
 				קיצור כתובת תמיד גורם לך להראות הרבה יותר איכותי בתצוגה לאנשים, נסו לא תתאכזבו!'
 			/>
+			<meta
+				property='og:color'
+				content='#dfc39b'
+			/>
 			<link
 				rel='icon'
 				href={logo.src}
