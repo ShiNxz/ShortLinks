@@ -3,6 +3,8 @@ import CheckURL from '@/utils/functions/CheckURL'
 import isBlockedURL from '@/utils/functions/isBlockedURL'
 import GenerateString from '@/utils/functions/GenerateString'
 import Link from '@/utils/models/Link'
+import User from '@/utils/models/User'
+import { verify } from 'jsonwebtoken'
 
 const handler = async (req, res) => {
 	await db()
@@ -20,13 +22,26 @@ const handler = async (req, res) => {
 				shortCode = GenerateString()
 			}
 
-			await Link.create({
+			const createdLink = await Link.create({
 				url,
 				shortCode,
 			})
 
-			// make it delayed by 1000 ms
-			// await new Promise((resolve) => setTimeout(() => resolve(), 1000))
+			if (req.cookies.token) {
+				try {
+					let decoded = verify(req.cookies.token, process.env.SESSION_SECRET),
+						user = await User.where('userId').equals(decoded.userId)
+
+					if (user.length > 0) {
+						user = user[0]
+						user.links.push(createdLink._id)
+						// (await User.where('userId').equals(decoded.userId).populate('links'))[0].links
+						user.save()
+					}
+				} catch (e) {
+					console.error(e)
+				}
+			}
 
 			res.status(200).json({ success: true, url, shortCode, shortUrl: `${process.env.BASE_URI}/${shortCode}` })
 		}

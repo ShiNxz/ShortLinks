@@ -3,7 +3,7 @@ import Checkbox from '@/UI/Next/Checkbox'
 import { FiMail } from 'react-icons/fi'
 import { RiLockPasswordLine } from 'react-icons/ri'
 import { Text, Row, Spacer, Popover } from '@nextui-org/react'
-import paymentReducer, { initialState, ACTIONS } from './Reducer'
+import paymentReducer, { initialState, ACTIONS, Link } from './Reducer'
 import { useReducer } from 'react'
 import Button from '@/UI/Next/Button'
 import { toast } from 'react-toastify'
@@ -71,7 +71,7 @@ const LoginComponent = ({ size }) => {
 			cookie.set('token', data.token, { expires: state.rememberMe ? 30 : 1 })
 			mutate()
 			dispatchRedux(closeModal())
-		}, 2000)
+		}, 1200)
 	}
 
 	return !loggedIn ? (
@@ -95,7 +95,7 @@ const LoginComponent = ({ size }) => {
 						success={state[id]?.status === 1 ? success : undefined}
 						loading={state.loading || undefined}
 					/>
-					<Spacer y={0.1} />
+					<Spacer y={0.1} key={id} />
 				</>
 			))}
 
@@ -120,7 +120,7 @@ const LoginComponent = ({ size }) => {
 						</Popover>
 					</Text>
 				</Checkbox>
-				<Text size={14}>שכחתי סיסמה? (לא זמין)</Text>
+				<Link onClick={() => dispatchRedux(openModal('register'))}>אין ברשותי משתמש</Link>
 			</Row>
 
 			<Button

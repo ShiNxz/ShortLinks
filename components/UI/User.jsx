@@ -59,7 +59,7 @@ const UserDropdown = () => {
 			<Dropdown.Menu
 				aria-label='Profile Actions'
 				onAction={handleAction}
-				disabledKeys={['profile', 'settings', 'links']}
+				disabledKeys={['profile', 'settings']}
 			>
 				<Dropdown.Item
 					icon={<AiOutlineUser className='ml-2' />}

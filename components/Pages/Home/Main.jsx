@@ -69,6 +69,7 @@ const Main = ({ r }) => {
 						style={{ direction: 'ltr' }}
 						onChange={(e) => dispatch({ type: 'SET_URL', payload: e.target.value })}
 						disabled={state.isLoading}
+						value={state.url}
 					/>
 				</div>
 

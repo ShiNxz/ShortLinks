@@ -3,7 +3,7 @@ import Checkbox from '@/UI/Next/Checkbox'
 import { FiMail } from 'react-icons/fi'
 import { RiLockPasswordLine } from 'react-icons/ri'
 import { Text, Row, Spacer } from '@nextui-org/react'
-import paymentReducer, { initialState, ACTIONS } from './Reducer'
+import paymentReducer, { initialState, ACTIONS, Link } from './Reducer'
 import { useReducer } from 'react'
 import Button from '@/UI/Next/Button'
 import { toast } from 'react-toastify'
@@ -86,7 +86,7 @@ const RegisterComponent = ({ size }) => {
 			cookie.set('token', data.token, { expires: 30 })
 			mutate()
 			dispatchRedux(closeModal())
-		}, 2000)
+		}, 1200)
 	}
 
 	return !loggedIn ? (
@@ -110,7 +110,7 @@ const RegisterComponent = ({ size }) => {
 						success={state[id]?.status === 1 ? success : undefined}
 						loading={state.loading || undefined}
 					/>
-					<Spacer y={0.1} />
+					<Spacer y={0.1} key={id} />
 				</>
 			))}
 
@@ -131,7 +131,7 @@ const RegisterComponent = ({ size }) => {
 						<Text size={14}>אני מאשר את תנאי השימוש</Text>
 					</Checkbox>
 				</div>
-				<Text size={14}>יש ברשותי כבר משתמש</Text>
+				<Link className='hover:text-blue-600' onClick={() => dispatchRedux(openModal('login'))}>יש ברשותי כבר משתמש</Link>
 			</Row>
 
 			<Button

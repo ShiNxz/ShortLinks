@@ -1,3 +1,4 @@
+import styled from 'styled-components'
 import { isEmail, isStrongPassword, matches } from 'validator'
 
 export const initialState = {
@@ -85,8 +86,7 @@ const Reducer = (state, action) => {
 		case ACTIONS.SET_IDENTIFIER: {
 			const username = action.payload.trim()
 
-			const checkUsername =
-				action.payload.length > 4 && matches(username, '^[a-zA-Z0-9_.-]*$')
+			const checkUsername = action.payload.length > 4 && matches(username, '^[a-zA-Z0-9_.-]*$')
 
 			return {
 				...state,
@@ -150,5 +150,24 @@ const Reducer = (state, action) => {
 			return state
 	}
 }
+
+export const Link = styled.a`
+	text-decoration: none;
+	transition: all 0.3s ease;
+	cursor: pointer;
+	font-size: 0.8rem;
+
+	&::after {
+		display: block;
+		content: '';
+		border-bottom: solid 2px #6e97f1;
+		transform: scaleX(0);
+		transition: transform 250ms ease-in-out;
+	}
+
+	&:hover::after {
+		transform: scaleX(1);
+	}
+`
 
 export default Reducer

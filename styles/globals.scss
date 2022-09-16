@@ -32,3 +32,44 @@ body {
 .nextui-user-name {
 	color: #fff !important;
 }
+
+.nextui-table-header-row > th:first-child {
+	padding-left: 0;
+	padding-right: var(--nextui-space-8);
+
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    border-top-right-radius: var(--nextui-radii-md);
+    border-bottom-right-radius: var(--nextui-radii-md);
+}
+
+.nextui-table-header-row > th:last-child {
+	padding-left: var(--nextui-space-8);
+	padding-right: 0;
+
+    border-top-left-radius: var(--nextui-radii-md);
+    border-bottom-left-radius: var(--nextui-radii-md);
+
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.nextui-table-header-row > th {
+	text-align: right
+}
+
+// .nextui-table-row > td:first-child {
+// 	padding-right: var(--nextui-space-8);
+// 	padding-left: 0;
+// }
+
+// .nextui-table-row > td:last-child {
+// 	padding-right: 0;
+// 	padding-left: var(--nextui-space-8);
+// }
+
+.nextui-table-cell {
+	padding-right: var(--nextui-space-8);
+	padding-left: var(--nextui-space-8);
+}

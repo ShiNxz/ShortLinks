@@ -51,7 +51,7 @@ const Reducer = (state, action) => {
 		}
 
 		case ACTIONS.SET_RESULTS: {
-			return { ...state, isLoading: false, results: action.payload }
+			return { ...state, url: '', isLoading: false, results: action.payload }
 		}
 
 		default:

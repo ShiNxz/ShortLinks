@@ -33,11 +33,11 @@ const AuthModal = () => {
 				: null
 		]
 
-	return type ? (
+	return (
 		<Modal
 			closeButton
 			aria-labelledby='Auth Modal'
-			open={type}
+			open={typeof type !== 'undefined'}
 			onClose={() => dispatch(closeModal())}
 		>
 			<Modal.Header>
@@ -46,22 +46,18 @@ const AuthModal = () => {
 						id='modal-title'
 						size={22}
 					>
-						{type.title}
+						{type?.title}
 					</Text>
 					<Text
 						id='modal-subtitle'
 						size={14}
 					>
-						{type.subtitle}
+						{type?.subtitle}
 					</Text>
 				</div>
 			</Modal.Header>
-			<Modal.Body>
-				<type.component />
-			</Modal.Body>
+			<Modal.Body>{type && <type.component />}</Modal.Body>
 		</Modal>
-	) : (
-		<></>
 	)
 }
 
