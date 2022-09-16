@@ -86,7 +86,7 @@ const Reducer = (state, action) => {
 			const username = action.payload.trim()
 
 			const checkUsername =
-				action.payload.length > 4 && action.payload.length < 15 && matches(username, '^[a-zA-Z0-9_.-]*$')
+				action.payload.length > 4 && matches(username, '^[a-zA-Z0-9_.-]*$')
 
 			return {
 				...state,
