@@ -58,7 +58,7 @@ const Header = ({ r }) => {
 						ברוכים <span>הבאים</span>
 					</Title>
 
-					<p className='text-md md:text-lg lg:text-xl text-[#312d2e]'>
+					<div className='text-md md:text-lg lg:text-xl text-[#312d2e]'>
 						תודה שבחרתם להיכנס לאתר שלנו! אז מה יש לנו כאן?
 						<br />
 						האתר הינו מספק שירות קיצור כתובות ארוכות.
@@ -73,7 +73,7 @@ const Header = ({ r }) => {
 							</Link>{' '}
 							של האתר.
 						</span>
-					</p>
+					</div>
 				</div>
 				<div className='p-12 hidden lg:block'>
 					<img

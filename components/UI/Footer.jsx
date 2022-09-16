@@ -65,38 +65,37 @@ const Footer = () => {
 						<Title>
 							מידע <span>נוסף</span>
 						</Title>
-						<Link>
-							<NextLink href='/terms'>תקנון שימוש</NextLink>
-						</Link>
-						<Link>
-							<NextLink href='/faq'>שאלות נפוצות</NextLink>
-						</Link>
-						<Link>
-							<NextLink href='/faq'>מדריך שימוש</NextLink>
-						</Link>
-						<Link>
-							<NextLink href='/faq'>אתרים בבעלותינו</NextLink>
-						</Link>
+						<NextLink href='/terms'>
+							<Link>תקנון שימוש</Link>
+						</NextLink>
+
+						<NextLink href='/faq'>
+							<Link>שאלות נפוצות</Link>
+						</NextLink>
+
+						<NextLink href='/faq'>
+							<Link>מדריך שימוש</Link>
+						</NextLink>
+
+						<NextLink href='/faq'>
+							<Link>אתרים בבעלותינו</Link>
+						</NextLink>
 					</LinksSection>
 					<LinksSection>
 						<Title>
 							קישורים <span>נוספים</span>
 						</Title>
-						<Link>
-							<a
-								href='https://next-il.co.il'
-								target='_blank'
-							>
-								Next-il.co.il
-							</a>
+						<Link
+							href='https://next-il.co.il'
+							target='_blank'
+						>
+							Next-il.co.il
 						</Link>
-						<Link>
-							<a
-								href='https://play-il.co.il'
-								target='_blank'
-							>
-								Play-IL.co.il
-							</a>
+						<Link
+							href='https://play-il.co.il'
+							target='_blank'
+						>
+							Play-IL.co.il
 						</Link>
 						{/* <Link>קישור נוסף</Link>
 						<Link>קישור נוסף</Link> */}

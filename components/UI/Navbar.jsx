@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { useState } from 'react'
 import { BiMenuAltLeft } from 'react-icons/bi'
+import User from './User'
 
 const pages = [
 	{
@@ -21,7 +22,7 @@ const pages = [
 	},
 ]
 
-const ItemStyled = styled.div`
+export const ItemStyled = styled.div`
 	color: ${({ active }) => (active ? '#c2aa89' : '#fff')};
 	//font-weight: ${({ active }) => (active ? '500' : '300')};
 	text-decoration: none;
@@ -53,7 +54,7 @@ const Item = ({ title, active, page }) => {
 			key={title}
 		>
 			<ItemStyled
-				className={`text-3xl mx-6`}
+				className={`text-lg mx-6`}
 				active={active}
 			>
 				{title}
@@ -75,7 +76,7 @@ const Navbar = () => {
 						className='cursor-pointer h-12 md:h-24 lg:h-auto'
 					/>
 				</Link>
-				<div className='lg:flex flex-row hidden'>
+				<div className='lg:flex flex-row items-center hidden'>
 					{pages.map(({ title, page }) => (
 						<Item
 							title={title}
@@ -84,6 +85,10 @@ const Navbar = () => {
 							page={page}
 						/>
 					))}
+
+					<div className='border-l border-[#dfc39b] h-8 w-4 ml-8' />
+
+					<User />
 				</div>
 				<div className='lg:hidden block'>
 					<a

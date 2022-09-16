@@ -4,8 +4,11 @@ import Main from '@/components/UI/Main'
 import Head from '@/components/UI/Head'
 
 import { AnimatePresence, motion } from 'framer-motion'
+import useAuth from '@/utils/hooks/useAuth'
 
 const Layout = ({ title, children }) => {
+	const { AuthModal } = useAuth()
+
 	return (
 		<>
 			<Head title={title} />
@@ -22,6 +25,9 @@ const Layout = ({ title, children }) => {
 					<Main>{children}</Main>
 				</motion.div>
 			</AnimatePresence>
+
+			<AuthModal />
+
 			<Footer />
 		</>
 	)

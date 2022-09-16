@@ -16,7 +16,11 @@ const Results = ({ state }) => {
 	}
 
 	return (
-		<div className={`mt-10 h-32 mb-8 w-full ${!state.isLoading && !state.results && 'animate-pulse bg-neutral-700/5'}`}>
+		<div
+			className={`mt-10 h-32 mb-8 w-full ${
+				!state.isLoading && !state.results && 'animate-pulse bg-neutral-700/5'
+			}`}
+		>
 			<AnimatePresence>
 				{state.isLoading ? (
 					<motion.div
@@ -36,7 +40,7 @@ const Results = ({ state }) => {
 						/>
 					</motion.div>
 				) : (
-					state.results && (
+					state.results && state.results.success && (
 						<motion.div
 							key='results container'
 							initial={{
@@ -69,16 +73,28 @@ const Results = ({ state }) => {
 								<div className='flex flex-row justify-between mt-1'>
 									<span className='font-medium'>שתף את הקישור:</span>
 									<div className='flex flex-row'>
-										<img
-											src='https://cdn-icons-png.flaticon.com/512/124/124034.png?w=360'
-											alt='whatsapp'
-											className='rounded-md w-6 h-6 ml-1'
-										/>
-										<img
-											src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Facebook_icon_2013.svg/300px-Facebook_icon_2013.svg.png?20161223201621'
-											alt='facebook'
-											className='rounded-md w-6 h-6'
-										/>
+										<a
+											href={decodeURI(`https://wa.me/?text=${state.results.shortUrl}`)}
+											target='_blank'
+										>
+											<img
+												src='https://cdn-icons-png.flaticon.com/512/124/124034.png?w=360'
+												alt='whatsapp'
+												className='rounded-md w-6 h-6 ml-1'
+											/>
+										</a>
+										<a
+											href={decodeURI(
+												`https://www.facebook.com/sharer/sharer.php?u=${state.results.shortUrl}`
+											)}
+											target='_blank'
+										>
+											<img
+												src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Facebook_icon_2013.svg/300px-Facebook_icon_2013.svg.png?20161223201621'
+												alt='facebook'
+												className='rounded-md w-6 h-6'
+											/>
+										</a>
 									</div>
 								</div>
 							</div>

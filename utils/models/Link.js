@@ -1,9 +1,11 @@
-import mongoose from 'mongoose'
+import mongoose, { Schema } from 'mongoose'
 
-const LinkSchema = new mongoose.Schema(
+const LinkSchema = new Schema(
 	{
 		url: { type: String, required: true },
-		shortCode: { type: String, required: true },
+		shortCode: { type: String, required: true, unique: true },
+
+		clicks: { type: Number, default: 0 },
 
 		password: { type: String, required: false },
 		userId: { type: String, required: false },
