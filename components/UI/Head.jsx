@@ -1,5 +1,6 @@
 import NextHead from 'next/head'
 import logo from '@/public/assets/logo.png'
+import Script from 'next/script'
 
 const Head = ({ title }) => {
 	const pageTitle = `SHRT | ${title}`
@@ -54,6 +55,7 @@ const Head = ({ title }) => {
 				rel='icon'
 				href={logo.src}
 			/>
+			<Script src='https://cdn.enable.co.il/licenses/enable-L14488b2sr0x45vk-0922-35390/init.js%22%3E' />
 		</NextHead>
 	)
 }

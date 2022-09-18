@@ -16,10 +16,7 @@ const App = ({ Component, pageProps }) => {
 	return (
 		<NextUIProvider>
 			<Provider store={store}>
-				<Script
-					src='https://cdn.enable.co.il/licenses/enable-L14488b2sr0x45vk-0922-35390/init.js%22%3E'
-					strategy='beforeInteractive'
-				/>
+				
 
 				<Component {...pageProps} />
 				<ToastContainer
