@@ -9,6 +9,10 @@ const Head = ({ title }) => {
 			<title>{pageTitle}</title>
 			<meta charSet='UTF-8' />
 			<meta
+				name='google-site-verification'
+				content='HXX30vTPWj--aqy4R5qXWmWZ3lxWagnubvv9kDjJtLY'
+			/>
+			<meta
 				name='description'
 				content='אתר SHRT הינו אתר לקיצור כתובות מהיר מאובטח וידידותי בחינם באינטרנט!
 				קיצור כתובת תמיד גורם לך להראות הרבה יותר איכותי בתצוגה לאנשים, נסו לא תתאכזבו!'
