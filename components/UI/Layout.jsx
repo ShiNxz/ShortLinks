@@ -5,6 +5,7 @@ import Head from '@/components/UI/Head'
 
 import { AnimatePresence, motion } from 'framer-motion'
 import useAuth from '@/utils/hooks/useAuth'
+import FixedAd from './FixedAd'
 
 const Layout = ({ title, children }) => {
 	const { AuthModal } = useAuth()
@@ -25,6 +26,8 @@ const Layout = ({ title, children }) => {
 					<Main>{children}</Main>
 				</motion.div>
 			</AnimatePresence>
+
+			<FixedAd />
 
 			<AuthModal />
 
