@@ -1,8 +1,23 @@
+import ProtectedLink from '@/components/Pages/ProtectedLink'
+import Layout from '@/components/UI/Layout'
 import db from '@/utils/db'
 import Link from '@/utils/models/Link'
+import { useEffect } from 'react'
 
-const Home = () => {
-	return <></>
+const Home = ({ linkId }) => {
+	useEffect(() => {
+		document.body.classList.add('bg-neutral-50')
+
+		return () => {
+			document.body.classList.remove('bg-neutral-50')
+		}
+	})
+
+	return (
+		<Layout>
+			<ProtectedLink id={linkId} />
+		</Layout>
+	)
 }
 
 export async function getServerSideProps(context) {
@@ -22,8 +37,10 @@ export async function getServerSideProps(context) {
 
 	const link = url[0]
 
+	if (link.password) return { props: { linkId: JSON.parse(JSON.stringify(link._id)) } }
+
 	link.clicks += 1
-	
+
 	await link.save()
 
 	return {

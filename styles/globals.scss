@@ -63,3 +63,15 @@ body {
 	padding-right: var(--nextui-space-8);
 	padding-left: var(--nextui-space-8);
 }
+
+.nextui-input-block-label {
+	right: var(--nextui-space-2) !important;
+}
+
+.nextui-input-block-label {
+	left: unset !important;
+}
+
+.nextui-input-main-container {
+	direction: ltr !important;
+}

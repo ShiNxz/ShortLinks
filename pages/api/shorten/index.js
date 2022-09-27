@@ -11,21 +11,39 @@ const handler = async (req, res) => {
 
 	switch (req.method) {
 		case 'POST': {
-			const { url, customId } = req.body
+			let { url, custom, password, notes } = req.body
+
+			if (custom !== '' && !req.cookies.token)
+				return res.status(200).json({ success: false, error: 'יש להתחבר על מנת לבחור קישור מותאם אישית' })
+			if (password !== '' && !req.cookies.token)
+				return res.status(200).json({ success: false, error: 'יש להתחבר על מנת לבחור סיסמה' })
+			if (notes !== '' && !req.cookies.token)
+				return res.status(200).json({ success: false, error: 'יש להתחבר על מנת לרשום הערות' })
 
 			if (!CheckURL(url)) return res.status(200).json({ success: false, error: 'הכתובת אינה תקינה.' })
-
 			if (isBlockedURL(url)) return res.status(200).json({ success: false, error: 'הכתובת אינה חוקית!' })
 
 			let shortCode = GenerateString()
-			while ((await Link.where('shortCode').equals(shortCode)).length >= 1) {
-				shortCode = GenerateString()
+
+			if (typeof custom != 'undefined' && custom !== '') {
+				if ((await Link.where('shortCode').equals(custom)).length >= 1)
+					return res.status(200).json({ success: false, error: 'הקישור המותאם כבר תפוס, יש לבחור קוד אחר' })
+				shortCode = custom
 			}
+
+			if (password == '') password = null
+
+			while ((await Link.where('shortCode').equals(shortCode)).length >= 1) shortCode = GenerateString()
 
 			const createdLink = await Link.create({
 				url,
 				shortCode,
+				custom,
+				notes,
+				password,
 			})
+
+			//await Link.updateMany({}, { notes: '' })
 
 			if (req.cookies.token) {
 				try {

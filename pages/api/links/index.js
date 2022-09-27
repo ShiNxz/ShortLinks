@@ -13,10 +13,6 @@ const handler = async (req, res) => {
 			let links = []
 
 			switch (key) {
-				case 'link': {
-					console.log('link')
-				}
-
 				case 'user': {
 					let user = await User.where('userId').equals(value).populate('links')
 
@@ -46,9 +42,9 @@ const handler = async (req, res) => {
 
 			if (user.length < 1) return res.status(200).json({ success: false, error: 'error to auth' })
 
-			const links = user[0].links.filter(link => link._id == id)
-			if(links.length < 1) return res.status(200).json({ success: false, error: 'לא נמצאו קישורים' })
-			
+			const links = user[0].links.filter((link) => link._id == id)
+			if (links.length < 1) return res.status(200).json({ success: false, error: 'לא נמצאו קישורים' })
+
 			await Link.deleteOne({ _id: id })
 
 			return res.status(200).json({ success: true, message: 'הקישור נמחק בהצלחה!' })

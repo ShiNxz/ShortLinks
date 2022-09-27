@@ -17,6 +17,10 @@ const pages = [
 		page: '/shorten',
 	},
 	{
+		title: 'כתובת WhatsApp',
+		page: '/whatsapp',
+	},
+	{
 		title: 'תקנון',
 		page: '/terms',
 	},

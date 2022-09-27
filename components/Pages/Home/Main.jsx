@@ -6,6 +6,7 @@ import { Title } from './Header'
 import Reducer, { initialState } from './Reducer'
 import { toast } from 'react-toastify'
 import Axios from '@/func/Axios'
+import AdvancedSettings from './AdvancedSettings'
 
 const Button = styled.button``
 
@@ -27,11 +28,12 @@ const Main = ({ r }) => {
 
 		dispatch({ type: 'SHORTEN_URL' })
 
-		const { data, success } = await Axios('/api/shorten', state, 'POST')
+		const { data, success, error } = await Axios('/api/shorten', state, 'POST')
 
 		dispatch({ type: 'SET_RESULTS', payload: data })
+
 		return toast.update(toastId, {
-			render: success ? 'הקישור קוצר בהצלחה!' : `חלה שגיאה! ${data.error}`,
+			render: success ? 'הקישור קוצר בהצלחה!' : `חלה שגיאה! ${error}`,
 			type: success ? toast.TYPE.SUCCESS : toast.TYPE.ERROR,
 			isLoading: false,
 			autoClose: 5000,
@@ -73,7 +75,7 @@ const Main = ({ r }) => {
 					/>
 				</div>
 
-				{/* <AdvancedSettings /> */}
+				<AdvancedSettings state={state} dispatch={dispatch} />
 
 				<Results
 					state={state}

@@ -11,10 +11,12 @@ import { MdOutlineDeleteForever } from 'react-icons/md'
 import Axios from '@/utils/functions/Axios'
 import { timeSince } from '@/utils/functions/Time'
 import { Title } from '../Pages/Home/Header'
+import EditModal from './EditModal'
 
 const Links = ({ Key, Value }) => {
 	const { data, mutate } = useSWR(`/api/links?key=${Key}&value=${Value}`, fetcher)
 	const [links, setLinks] = useState([])
+	const [editModal, setEditModal] = useState({ open: false, linkId: null })
 
 	useEffect(() => {
 		if (data?.links) setLinks(data.links)
@@ -57,11 +59,12 @@ const Links = ({ Key, Value }) => {
 					borderWeight={0}
 				>
 					<Table.Header className='text-center'>
-						<Table.Column className='w-1/5'>קישור מקורי</Table.Column>
-						<Table.Column className='w-1/5'>קישור מקוצר</Table.Column>
-						<Table.Column className='w-1/5'>מספר כניסות</Table.Column>
-						<Table.Column className='w-1/5'>תאריך קיצור</Table.Column>
-						<Table.Column className='w-1/5'>הערות</Table.Column>
+						<Table.Column className='w-1/6'>קישור מקורי</Table.Column>
+						<Table.Column className='w-1/6'>קישור מקוצר</Table.Column>
+						<Table.Column className='w-1/6'>מספר כניסות</Table.Column>
+						<Table.Column className='w-1/6'>תאריך קיצור</Table.Column>
+						<Table.Column className='w-1/6'>הערות</Table.Column>
+						<Table.Column className='w-1/6'>סיסמה</Table.Column>
 						<Table.Column className='w-1/10'>פעולות</Table.Column>
 					</Table.Header>
 					<Table.Body>
@@ -87,9 +90,15 @@ const Links = ({ Key, Value }) => {
 								<Table.Cell>{timeSince(link.createdAt, true)}</Table.Cell>
 								<Table.Cell>{link.notes || '-'}</Table.Cell>
 								<Table.Cell>
+									{link.password ? <ShowPassword password={link.password} /> : '-'}
+								</Table.Cell>
+								<Table.Cell>
 									<div className='flex flex-row'>
-										<Tooltip content='עריכת קישור'>
-											<button disabled>
+										<Tooltip
+											content='עריכת קישור'
+											color='warning'
+										>
+											<button onClick={() => setEditModal({ open: true, linkId: link._id })}>
 												<TiEdit
 													size={20}
 													fill='#979797'
@@ -100,9 +109,8 @@ const Links = ({ Key, Value }) => {
 										<Tooltip
 											content='מחיקת קישור'
 											color='error'
-											onClick={() => handleDelete(link._id)}
 										>
-											<button>
+											<button onClick={() => handleDelete(link._id)}>
 												<MdOutlineDeleteForever
 													size={20}
 													fill='#FF0080'
@@ -121,6 +129,25 @@ const Links = ({ Key, Value }) => {
 					<span>אנא המתן...</span>
 				</div>
 			)}
+			<EditModal
+				open={editModal.open}
+				setOpen={setEditModal}
+				linkId={editModal.linkId}
+				mutate={mutate}
+			/>
+		</div>
+	)
+}
+
+const ShowPassword = ({ password }) => {
+	const [showPassword, setShowPassword] = useState(false)
+
+	return (
+		<div
+			className={`${showPassword ? 'blur-none' : 'blur-[3px]'} cursor-pointer`}
+			onClick={() => setShowPassword(true)}
+		>
+			{password}
 		</div>
 	)
 }

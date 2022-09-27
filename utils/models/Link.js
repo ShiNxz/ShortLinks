@@ -7,8 +7,8 @@ const LinkSchema = new Schema(
 
 		clicks: { type: Number, default: 0 },
 
-		password: { type: String, required: false, default: null },
-		notes: { type: String, required: false, default: '' },
+		password: { type: String, default: null },
+		notes: { type: String, default: '' },
 
 		createdAt: Number,
 		updatedAt: Number,

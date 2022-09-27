@@ -3,7 +3,7 @@ import logo from '@/public/assets/logo.png'
 import Script from 'next/script'
 
 const Head = ({ title }) => {
-	const pageTitle = `SHRT | ${title}`
+	const pageTitle = `SHRT | ${title || 'קיצור כתובות באינטרנט'}`
 
 	return (
 		<NextHead>
@@ -32,7 +32,7 @@ const Head = ({ title }) => {
 			/>
 			<meta
 				property='og:title'
-				content='קיצור קישורים | SHRT.co.il'
+				content='SHRT.co.il | קיצור כתובות באינטרנט'
 			/>
 			<meta
 				property='og:url'
