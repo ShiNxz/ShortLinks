@@ -45,7 +45,7 @@ export async function getServerSideProps(context) {
 
 	return {
 		redirect: {
-			destination: link.url,
+			destination: encodeURI(link.url),
 			permanent: false,
 		},
 	}

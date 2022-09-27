@@ -23,7 +23,7 @@ const ProtectedLink = ({ id }) => {
 			})
 			return setLoading(false)
 		}
-		router.push(data.url)
+		router.push(encodeURI(data.url))
 	}
 
 	return (
