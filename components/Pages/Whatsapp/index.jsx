@@ -4,8 +4,42 @@ import { useReducer } from 'react'
 import Reducer, { ACTIONS, initialState } from './Reducer'
 import { toast } from 'react-toastify'
 import Axios from '@/func/Axios'
-import { Title } from './../Home/Header'
 import codes from './codes.json'
+import styled from 'styled-components'
+
+const Title = styled.h3`
+	font-size: 1.7rem;
+	font-weight: 400;
+	color: #312d2e;
+	position: relative;
+	width: fit-content;
+	margin-bottom: 1rem;
+
+	@media (min-width: 640px) {
+		font-size: 2.2rem;
+	}
+
+	@media (min-width: 768px) {
+		font-size: 2.4rem;
+	}
+
+	@media (min-width: 1024px) {
+		font-size: 2.4rem;
+	}
+
+	@media (min-width: 1280px) {
+		font-size: 2.4rem;
+	}
+
+	@media (min-width: 1536px) {
+		font-size: 2.5rem;
+	}
+
+	& span {
+		color: #dfc39b;
+		font-weight: 600;
+	}
+`
 
 const WhatsApp = () => {
 	const [state, dispatch] = useReducer(Reducer, initialState)
@@ -58,8 +92,8 @@ const WhatsApp = () => {
 					• במידה ותציינו מספר טלפון, תקבלו קישור שמעביר אתכם באופן אוטומטי לצאט עם מספר הטלפון.
 					<br />
 					• במידה ותציינו מספר טלפון והודעה, תקבלו קישור שמעביר אתכם לצאט עם מספר הטלפון והודעה כתובה מראש.
-					<br />
-					• במידה ותציינו רק הודעה, תקבלו קישור שמעביר אתכם לאפליקצייה עם הודעה מוכנה, ורק נשאר לכם לבחור צאט.
+					<br />• במידה ותציינו רק הודעה, תקבלו קישור שמעביר אתכם לאפליקצייה עם הודעה מוכנה, ורק נשאר לכם
+					לבחור צאט.
 				</p>
 
 				<div className='flex flex-col items-center justify-center'>
@@ -114,13 +148,22 @@ const WhatsApp = () => {
 						id='message'
 					/>
 					<Spacer y={1} />
-					<Button
+					{/* <Button
+						//className='bg-[#312d2e] duration-300 hover:bg-[#464444] text-[#dfc39b] font-medium py-2 px-4 rounded-full mt-4 lg:mt-0 lg:ml-4 w-full lg:w-auto'
+						disabled={state.isLoading}
+						onClick={handleSubmit}
+						color='warning'
+					>
+						צור קישור
+					</Button> */}
+					<button
 						className='bg-[#312d2e] duration-300 hover:bg-[#464444] text-[#dfc39b] font-medium py-2 px-4 rounded-full mt-4 lg:mt-0 lg:ml-4 w-full lg:w-auto'
 						disabled={state.isLoading}
 						onClick={handleSubmit}
+						//color='warning'
 					>
 						צור קישור
-					</Button>
+					</button>
 					<Spacer y={1} />
 				</div>
 
