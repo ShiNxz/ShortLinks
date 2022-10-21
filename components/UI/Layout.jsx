@@ -27,7 +27,7 @@ const Layout = ({ title, children }) => {
 				</motion.div>
 			</AnimatePresence>
 
-			<FixedAd />
+			{/* <FixedAd /> */}
 
 			<AuthModal />
 
