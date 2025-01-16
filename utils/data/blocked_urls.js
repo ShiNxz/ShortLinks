@@ -11,6 +11,7 @@ const BlockedUrls = [
 	'test.co.il',
 	'google.com',
 	'google.co.il',
+	'vps54436'
 ]
 
 export default BlockedUrls

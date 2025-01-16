@@ -75,6 +75,13 @@ const UserDropdown = () => {
 				>
 					צפייה בקישורים שנוצרו
 				</Dropdown.Item>
+				{user.role === 'admin' && <Dropdown.Item
+					icon={<BsLink45Deg className='ml-2' />}
+					color='default'
+					key='/admin/links'
+				>
+					ניהול קישורים
+				</Dropdown.Item>}
 				<Dropdown.Item
 					icon={<RiUserSettingsLine className='ml-2' />}
 					color='default'
